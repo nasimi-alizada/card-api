@@ -1,0 +1,58 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create card table
+      author: Nasimi Alizada
+      changes:
+        - createTable:
+            tableName: cards
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: pan
+                  type: varchar(16)
+                  remarks: number of card
+                  constraints:
+                    nullable: false
+              - column:
+                  name: expire_date
+                  type: date
+                  remarks: expire date of card
+                  constraints:
+                    nullable: false
+              - column:
+                  name: cvv
+                  type: varchar(3)
+                  remarks: cvv of card
+                  constraints:
+                    nullable: false
+              - column:
+                  name: cardholder
+                  type: varchar(256)
+                  remarks: cardholder name
+              - column:
+                  name: status
+                  type: varchar(16)
+                  remarks: status of card
+              - column:
+                  name: created_at
+                  type: timestamp
+                  defaultValue: now()
+                  constraints:
+                    nullable: false
+                  remarks: When the card created
+              - column:
+                  name: updated_at
+                  type: timestamp
+                  defaultValue: now()
+                  constraints:
+                    nullable: false
+                  remarks: When update of  card
+
+
+            remarks: Table to store information about liquibase
